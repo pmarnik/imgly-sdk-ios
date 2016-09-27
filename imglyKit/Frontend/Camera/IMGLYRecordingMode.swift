@@ -63,9 +63,9 @@ import MobileCoreServices
     var actionSelector: Selector {
         switch self {
         case .Photo:
-            return "takePhoto:"
+            return #selector(IMGLYCameraViewController.takePhoto(_:))
         case .Video:
-            return "recordVideo:"
+            return #selector(IMGLYCameraViewController.recordVideo(_:))
         }
     }
     
