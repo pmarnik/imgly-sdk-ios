@@ -255,7 +255,7 @@ public class IMGLYCameraViewController: UIViewController {
         configureFilterSelectionController()
         configureCameraController()
         cameraController?.squareMode = squareMode
-        cameraController?.switchToRecordingMode(currentRecordingMode, animated: false)
+       
     }
     
     public override func viewWillAppear(animated: Bool) {
@@ -268,6 +268,7 @@ public class IMGLYCameraViewController: UIViewController {
     
     public override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        cameraController?.switchToRecordingMode(currentRecordingMode, animated: false)
         
         if let filterSelectionViewConstraint = filterSelectionViewConstraint where filterSelectionViewConstraint.constant != 0 {
             filterSelectionController.endAppearanceTransition()
