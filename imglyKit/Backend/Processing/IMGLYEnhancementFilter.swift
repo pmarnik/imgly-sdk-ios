@@ -23,10 +23,7 @@ public class IMGLYEnhancementFilter : CIFilter {
     /// A CIImage object that serves as input for the filter.
     public var inputImage:CIImage?
     
-    #if os(iOS)
-    /// If this is set to false, the original image is returned.
-    public var enabled = true
-    #endif
+    public var filterEnabled = true
     
     /// If this is set to true, the enhanced image is kept until reset is called.
     public var storeEnhancedImage = false
@@ -39,7 +36,7 @@ public class IMGLYEnhancementFilter : CIFilter {
             return nil
         }
         
-        if !enabled {
+        if !filterEnabled {
             return inputImage
         }
         
@@ -73,7 +70,7 @@ extension IMGLYEnhancementFilter {
     public override func copyWithZone(zone: NSZone) -> AnyObject {
         let copy = super.copyWithZone(zone) as! IMGLYEnhancementFilter
         copy.inputImage = inputImage?.copyWithZone(zone) as? CIImage
-        copy.enabled = enabled
+        copy.filterEnabled = filterEnabled
         copy.storeEnhancedImage = storeEnhancedImage
         copy.enhancedImage = enhancedImage?.copyWithZone(zone) as? CIImage
         return copy
